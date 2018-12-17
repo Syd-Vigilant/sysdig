@@ -127,8 +127,6 @@ public:
 	{
 	}
 
-	static void parse_json_mounts(const Json::Value &mnt_obj, vector<container_mount_info> &mounts);
-
 	const vector<string>& get_env() const { return m_env; }
 
 	const container_mount_info *mount_by_idx(uint32_t idx) const;
@@ -173,6 +171,8 @@ public:
 	bool resolve(sinsp_container_manager* manager, sinsp_threadinfo* tinfo, bool query_os_for_missing_info);
 	static void cleanup();
 	static void set_query_image_info(bool query_image_info);
+	static void parse_json_mounts(const Json::Value &mnt_obj, vector<sinsp_container_info::container_mount_info> &mounts);
+
 protected:
 #if !defined(CYGWING_AGENT) && defined(HAS_CAPTURE)
 	static size_t curl_write_callback(const char* ptr, size_t size, size_t nmemb, string* json);
