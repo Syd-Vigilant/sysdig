@@ -884,6 +884,7 @@ public:
 
 	void set_query_docker_image_info(bool query_image_info);
 
+	void set_cri_socket_path(const std::string& path);
 VISIBILITY_PRIVATE
 
         static inline ppm_event_flags falco_skip_flags()
